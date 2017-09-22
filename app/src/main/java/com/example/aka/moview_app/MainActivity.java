@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     Adapter_Movie_Data adapter;
     RecyclerView recyclerview;
-    String api = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    String api = "cee3ed8bcc95b48954b430b27df3b42c";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
