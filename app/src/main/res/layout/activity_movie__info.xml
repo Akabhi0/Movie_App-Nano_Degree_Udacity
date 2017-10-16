@@ -13,16 +13,20 @@
     tools:context="com.example.aka.moview_app.Movie_Info">
 
     <android.support.v7.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:elevation="5dp"
-        android:layout_margin="20dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:padding="2dp"
+        android:id="@+id/cardView2">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
             android:id="@+id/show_image"
+            android:scaleType="fitXY"
+            android:src="@drawable/cupcake"
             />
+
     </android.support.v7.widget.CardView>
 
     <TextView
@@ -31,31 +35,77 @@
         android:layout_height="40dp"
         android:fontFamily="sans-serif-condensed"
         android:id="@+id/overview"
-        android:textAlignment="textStart"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:textAlignment="center"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="13dp"
+        android:layout_toEndOf="@+id/cardView2" />
 
     <TextView
         android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:textSize="20sp"
         android:fontFamily="sans-serif-condensed"
         android:id="@+id/title"
         android:textAlignment="center"
-        android:layout_above="@+id/rating"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="13dp" />
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/cardView2" />
 
     <TextView
         android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/rating"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:fontFamily="sans-serif-condensed"
-        android:layout_above="@+id/overview"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
+        android:layout_alignBottom="@+id/cardView2"
+        android:layout_toEndOf="@+id/cardView2" />
 
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/cardView2"
+        android:elevation="4dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/cardView3">
+
+        <TextView
+            android:maxLines="10"
+            android:maxLength="500"
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/overview_info"/>
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/offiline"
+            android:text="offline"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/see_list"
+            android:text="list"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/play"
+            android:text="play"
+            android:layout_weight="1"/>
+    </LinearLayout>
 </RelativeLayout>

@@ -98,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
                     Movie_Data movieData = new Movie_Data();
                     movieData.title = jsonObject.getString("original_title");
                     movieData.poster = jsonObject.getString("poster_path");
+                    movieData.vote_average = jsonObject.getDouble("vote_average");
+                    movieData.poster_path = jsonObject.getString("backdrop_path");
+                    movieData.popularity = jsonObject.getDouble("popularity");
+                    movieData.overview = jsonObject.getString("overview");
+                    movieData.PERSON_NUMBER = 3;
 
                     movie_datas.add(movieData);
                     //now we are going to set the recycler view
@@ -124,11 +129,17 @@ public class MainActivity extends AppCompatActivity {
                 for(int i=0; i<=jsonArray.length() ;i++){
 
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
+
                     Movie_Data movieData = new Movie_Data();
                     movieData.title = jsonObject.getString("original_name");
                     movieData.poster = jsonObject.getString("poster_path");
-
+                    movieData.vote_average = jsonObject.getDouble("vote_average");
+                    movieData.popularity = jsonObject.getInt("vote_count");
+                    movieData.poster_path = jsonObject.getString("backdrop_path");
+                    movieData.overview = jsonObject.getString("overview");
+                    movieData.PERSON_NUMBER = 2;
                     movie_datas.add(movieData);
+
                     //now we are going to set the recycler view
                     adapter = new Adapter_Movie_Data(movie_datas,MainActivity.this);
                     recyclerview.setAdapter(adapter);
@@ -143,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     class MyJSONObjectListener_person implements Response.Listener<JSONObject> {
+
         @Override
         public void onResponse(JSONObject response) {
             try {
@@ -153,9 +165,22 @@ public class MainActivity extends AppCompatActivity {
                 for(int i=0; i<=jsonArray.length() ;i++){
 
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
+
                     Movie_Data movieData = new Movie_Data();
                     movieData.title = jsonObject.getString("name");
                     movieData.poster = jsonObject.getString("profile_path");
+
+                    //JSON OBJECT OF KNOWN_FOR
+                    JSONArray jsonArray1 = jsonObject.getJSONArray("known_for");
+
+                    for (int j=0;j<jsonArray1.length();j++){
+                        JSONObject jsonObject1 = jsonArray1.getJSONObject(j);
+                        movieData.vote_average = jsonObject1.getDouble("vote_average");
+                        movieData.popularity = jsonObject1.getDouble("popularity");
+                        movieData.poster_path = jsonObject1.getString("poster_path");
+                        movieData.overview = jsonObject1.getString("overview");
+                        movieData.PERSON_NUMBER = 1;
+                    }
 
                     movie_datas.add(movieData);
                     //now we are going to set the recycler view

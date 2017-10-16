@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Movie_Info" />
-        <activity android:name=".Contact_View"></activity>
+        <activity android:name=".Contact_View" />
+        <activity android:name=".List_movie_data_saved"></activity>
     </application>
 
 </manifest>

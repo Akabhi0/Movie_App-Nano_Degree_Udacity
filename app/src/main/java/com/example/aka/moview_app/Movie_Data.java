@@ -9,23 +9,31 @@ import java.io.Serializable;
 public class Movie_Data implements Serializable {
     String title;
     String poster;
+    String overview;
+
+    public String getOverview() {
+        return overview;
+    }
+
+    String poster_path;
     int release_date;
+    double popularity;
+    double vote_average;
+    int PERSON_NUMBER;
+
+    public String getPoster_path() { return poster_path; }
 
     public int getRelease_date() {
         return release_date;
     }
 
-    public int getPopularity() {
+    public double getPopularity() {
         return popularity;
     }
 
-    public int getVote_average() {
+    public double getVote_average() {
         return vote_average;
     }
-
-    int popularity;
-    int vote_average;
-
 
     public String getTitle() {
         return title;
